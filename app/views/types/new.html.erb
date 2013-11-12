@@ -1,0 +1,22 @@
+<h1>New type</h1>
+<% if @type.errors.any? %>
+  <div class="alert alert-danger">
+    <p><strong>Sorry!</strong> <%= pluralize(@type.errors.count, "error") %> occured:</p>
+    <ul>
+    <% @type.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @type do |f| %>
+  
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  
+  <%= f.submit "Submit" %>
+
+<% end %>

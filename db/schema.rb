@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112170215) do
+ActiveRecord::Schema.define(:version => 20131112200103) do
+
+  create_table "media_items", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.integer  "type_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "borrowed_from"
+  end
+
+  add_index "media_items", ["type_id"], :name => "index_media_items_on_type_id"
+  add_index "media_items", ["user_id"], :name => "index_media_items_on_user_id"
+
+  create_table "types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

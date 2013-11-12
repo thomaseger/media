@@ -1,0 +1,13 @@
+<h1><%=@media_item.title %></h1>
+
+<p>Link: <%=link_to @media_item.link, @media_item.link, :target => "_blank" %></p>
+<p>User: <%=@media_item.user.name %></p>
+<p>Type: <%=@media_item.type.name %></p>
+<p>
+	<% if @media_item.borrowed_from? %>
+		Borrowed from <%= User.find(@media_item.borrowed_from).name %>
+	<% else %>
+		<a href="todo">Borrow</a>
+	<% end %>
+</p>
+

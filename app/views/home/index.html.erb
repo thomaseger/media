@@ -1,4 +1,2 @@
 <h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<p>Please <%= link_to 'login', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %> to get started</p>

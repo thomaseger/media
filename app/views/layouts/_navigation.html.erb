@@ -1,12 +1,28 @@
-<%= link_to "Rails3 Devise Rspec Cucumber", root_path, :class => 'brand' %>
 <ul class="nav">
+  <% if user_signed_in? %>
+
+    <li>
+      <div id="search">
+        <%= render :partial => 'media_items/search' %>
+      </div>
+    </li>
+    <li>
+      <%= link_to 'New media item', new_media_item_path %>
+    </li>
+    <li>
+      <%= link_to 'All media items', media_items_path %>
+    </li>
+    <li>
+      <%= link_to 'New type', new_type_path %>
+    </li>
+    <li>
+      <%= link_to 'All types', types_path %>
+    </li>
+  <% end %>
+
   <% if user_signed_in? %>
     <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>
     </li>
   <% end %>
   <% if user_signed_in? %>
@@ -15,7 +31,7 @@
     </li>
   <% else %>
     <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
+    :-)
     </li>
   <% end %>
 </ul>

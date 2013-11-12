@@ -1,0 +1,32 @@
+<% if @media_item.errors.any? %>
+  <div class="alert alert-danger">
+    <p><strong>Sorry!</strong> <%= pluralize(@media_item.errors.count, "error") %> occured:</p>
+    <ul>
+    <% @media_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @media_item do |f| %>
+  
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </p>
+  
+  <p>
+    <%= f.label :type %>
+    <%= f.collection_select :type, Type.order("name ASC"), :id, :name %>
+
+  </p>
+  
+  <%= f.submit "Submit" %>
+
+<% end %>

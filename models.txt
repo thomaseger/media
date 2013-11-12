@@ -1,0 +1,11 @@
+media
+    title:string
+    link:string
+    type:references
+    user: references
+    
+type (dvd, blueray, vhs, ...)
+    name:string
+    
+user
+    //devise defaults...
