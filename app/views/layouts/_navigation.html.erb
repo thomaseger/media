@@ -1,11 +1,12 @@
 <ul class="nav">
   <% if user_signed_in? %>
-
+    <% if ENV["FT_SEARCH"] == 'true' %>
     <li>
       <div id="search">
         <%= render :partial => 'media_items/search' %>
       </div>
     </li>
+    <% end %>
     <li>
       <%= link_to 'New media item', new_media_item_path %>
     </li>
