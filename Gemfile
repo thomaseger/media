@@ -5,6 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 group :development, :test do
+  gem "seed_dump"
   gem 'sqlite3'
   gem 'webrick'
 end
