@@ -7,7 +7,9 @@
 	<% if @media_item.borrowed_from? %>
 		Borrowed from <%= User.find(@media_item.borrowed_from).name %>
 	<% else %>
-		<a href="todo">Borrow</a>
+		<% if ENV["FT_BORROW"] == "true" %>
+			<a href="todo">Borrow</a>
+		<% end %>
 	<% end %>
 </p>
 
