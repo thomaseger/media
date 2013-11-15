@@ -3,7 +3,7 @@
   <p>
   	<%=link_to media_item.title, media_item %><br/>
   	<small>
-  		(A <%= media_item.type.name %> from <%= current_user.name %>. 
+  		(A <%= media_item.type.name %> from <%= media_item.user.name %>. 
   		<% if ENV['FT_BORROW'] == 'true' %>
 		  	<% if media_item.borrowed_from? %>
 			 Borrowed from <%= User.find(media_item.borrowed_from).name %>.

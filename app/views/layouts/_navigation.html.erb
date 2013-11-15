@@ -19,20 +19,24 @@
       <li>
         <%= link_to 'All media items', media_items_path %>
       </li>
-      <li>
-        <%= link_to 'New type', new_type_path %>
-      </li>
-      <li>
-        <%= link_to 'All types', types_path %>
-      </li>
+      <% if ENV["FT_TYPES"] == "true" %>
+        <li>
+          <%= link_to 'New type', new_type_path %>
+        </li>
+        <li>
+          <%= link_to 'All types', types_path %>
+        </li>
+      <% end %>
     <% end %>
+  </ul>
 
+  <ul class="nav navbar-nav navbar-right">
     <% if user_signed_in? %>
       <li>
       <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
       </li>
     <% end %>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && ENV["FT_EDIT_ACCOUNT"] == "true" %>
       <li>
       <%= link_to 'Edit account', edit_user_registration_path %>
       </li>
