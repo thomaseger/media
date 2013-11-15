@@ -3,13 +3,13 @@
 # Do not hesitate to tweak this to your needs
 
 MediaItem.create!([
-  { :title => "Gangster Squad", :link => "http://www.imdb.com/title/tt1321870/", :type_id => 3, :user_id => 6, :created_at => "2013-11-12 19:29:27", :updated_at => "2013-11-12 19:29:27", :borrowed_from => nil },
-  { :title => "Notting Hill", :link => "", :type_id => 2, :user_id => 6, :created_at => "2013-11-12 19:34:34", :updated_at => "2013-11-12 19:34:34", :borrowed_from => nil },
-  { :title => "James Bond - Skyfall", :link => "", :type_id => 2, :user_id => 6, :created_at => "2013-11-12 19:37:37", :updated_at => "2013-11-12 19:37:37", :borrowed_from => nil },
-  { :title => "The Dark Knight Rises", :link => "", :type_id => 3, :user_id => 6, :created_at => "2013-11-12 19:39:53", :updated_at => "2013-11-12 19:39:53", :borrowed_from => nil },
-  { :title => "The Last Of Us", :link => "http://www.thelastofus.com/", :type_id => 4, :user_id => 6, :created_at => "2013-11-12 20:36:48", :updated_at => "2013-11-12 20:36:48", :borrowed_from => nil },
-  { :title => "Shaun of the dead", :link => "http://www.imdb.com/title/tt0365748", :type_id => 2, :user_id => 6, :created_at => "2013-11-15 12:55:13", :updated_at => "2013-11-15 12:55:13", :borrowed_from => nil },
-  { :title => "How I met your mother - Season 1", :link => "", :type_id => 2, :user_id => 6, :created_at => "2013-11-15 13:52:02", :updated_at => "2013-11-15 13:52:02", :borrowed_from => nil }
+  { :title => "Gangster Squad", :link => "http://www.imdb.com/title/tt1321870/", :type_id => 3, :user_id => 1, :created_at => "2013-11-12 19:29:27", :updated_at => "2013-11-12 19:29:27", :borrowed_from => nil },
+  { :title => "Notting Hill", :link => "", :type_id => 2, :user_id => 1, :created_at => "2013-11-12 19:34:34", :updated_at => "2013-11-12 19:34:34", :borrowed_from => nil },
+  { :title => "James Bond - Skyfall", :link => "", :type_id => 2, :user_id => 1, :created_at => "2013-11-12 19:37:37", :updated_at => "2013-11-12 19:37:37", :borrowed_from => nil },
+  { :title => "The Dark Knight Rises", :link => "", :type_id => 3, :user_id => 1, :created_at => "2013-11-12 19:39:53", :updated_at => "2013-11-12 19:39:53", :borrowed_from => nil },
+  { :title => "The Last Of Us", :link => "http://www.thelastofus.com/", :type_id => 4, :user_id => 1, :created_at => "2013-11-12 20:36:48", :updated_at => "2013-11-12 20:36:48", :borrowed_from => nil },
+  { :title => "Shaun of the dead", :link => "http://www.imdb.com/title/tt0365748", :type_id => 2, :user_id => 1, :created_at => "2013-11-15 12:55:13", :updated_at => "2013-11-15 12:55:13", :borrowed_from => nil },
+  { :title => "How I met your mother - Season 1", :link => "", :type_id => 2, :user_id => 1, :created_at => "2013-11-15 13:52:02", :updated_at => "2013-11-15 13:52:02", :borrowed_from => nil }
 ])
 
 
