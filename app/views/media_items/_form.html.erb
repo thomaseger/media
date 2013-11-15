@@ -14,11 +14,14 @@
   <p>
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <% if ENV['FT_AUTO_FILL'] ==  'true' %>
+      <a href="todo">Auto fill</a>
+    <% end %>
   </p>
 
   <p>
     <%= f.label :link %>
-    <%= f.text_field :link %>
+    <%= f.url_field :link %>
   </p>
   
   <p>

@@ -4,15 +4,13 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
-#gem 'heroku'
-
 group :development, :test do
   gem 'sqlite3'
 end
 
 group :production do
-  #gem 'pg'
- # gem 'thin'
+  gem 'pg'
+  gem 'thin'
 end
 
 group :assets do
@@ -35,3 +33,4 @@ gem "figaro", ">= 0.5.3"
 gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "strong_parameters"
+gem "bootstrap-sass"
