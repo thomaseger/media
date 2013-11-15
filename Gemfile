@@ -34,3 +34,4 @@ gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "strong_parameters"
 gem "bootstrap-sass"
+gem "simple_form" #, '>= 3.0.0.rc'
