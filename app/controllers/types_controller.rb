@@ -1,4 +1,7 @@
 class TypesController < ApplicationController
+  
+  before_filter :authenticate_user!
+
   def index
   	@types = Type.order("name ASC")
   end

@@ -1,4 +1,7 @@
 class MediaItemsController < ApplicationController
+
+  	before_filter :authenticate_user!
+
 	def index
 		@media_items = MediaItem.all
 	end
