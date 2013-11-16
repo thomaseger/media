@@ -6,13 +6,6 @@
 
   <ul class="nav navbar-nav">
     <% if user_signed_in? %>
-      <% if ENV["FT_SEARCH"] == 'true' %>
-      <li>
-        <div id="search">
-          <%= render :partial => 'media_items/search' %>
-        </div>
-      </li>
-      <% end %>
       <li>
         <%= link_to 'New media item', new_media_item_path %>
       </li>
@@ -27,13 +20,22 @@
           <%= link_to 'All types', types_path %>
         </li>
       <% end %>
+      <% if ENV["FT_SEARCH"] == 'true' %>
+        <li>
+            <%= form_tag "/media_items/search", :method => :get, :class => "navbar-form navbar-left" do %>
+              <div class="form-group">
+                <%= text_field_tag :search, params[:search], :id => 'search_field', :class => "form-control", :placeholder => "Search" %>
+              </div>
+            <% end %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
     <% if user_signed_in? %>
       <li>
-      <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+        <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
       </li>
     <% end %>
     <% if user_signed_in? && ENV["FT_EDIT_ACCOUNT"] == "true" %>
