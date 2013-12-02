@@ -9,7 +9,7 @@ class MediaItemsController < ApplicationController
     if params.has_key?(:search)
     	@media_items = MediaItem.search params[:search]
     else
-      @media_items = MediaItem.all
+      @media_items = MediaItem.order('title')
     end
 
     if @media_items.empty?

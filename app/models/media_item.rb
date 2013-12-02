@@ -10,6 +10,6 @@ class MediaItem < ActiveRecord::Base
 
   def self.search(title)
   	search_condition = "%" + title + "%"
- 	find(:all, :conditions => ['lower(title) LIKE lower(?)', search_condition])
+ 	find(:all, :conditions => ['lower(title) LIKE lower(?)', search_condition], :order => 'title')
   end
 end
