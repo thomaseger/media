@@ -1,16 +1,17 @@
-<h1>All media items </h1>
-<% @media_items.each do |media_item| %>
-  <p>
-  	<%=link_to media_item.title, media_item %><br/>
-  	<small>
-  		(A <%= media_item.type.name %> from <%= media_item.user.name %>. 
-  		<% if ENV['FT_BORROW'] == 'true' %>
-		  	<% if media_item.borrowed_from? %>
-			 Borrowed from <%= User.find(media_item.borrowed_from).name %>.
-			<% else %>
-			  <a href="todo">Borrow</a>...
-			<% end %>
-		<% end %>)
-	</small>
-  </p>
-<% end %>
+<h1>Media</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Title</th><th>Link</th><th>Type</th><th>User</th>
+	</tr>
+
+  <% @media_items.each do |media_item| %>
+    <tr>
+      <td><%=link_to media_item.title, media_item %></td>
+      <td><%=link_to media_item.link, media_item.link %></td>
+      <td><%= media_item.type.name %></td>
+      <td><%= media_item.user.name %></td>
+    </tr>
+  <% end %>
+
+</table>
