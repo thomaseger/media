@@ -4,4 +4,4 @@
 /tmp
 /config/application.yml
 /config/database.yml
-*.sql
+*.dump
