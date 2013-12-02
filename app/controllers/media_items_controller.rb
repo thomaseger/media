@@ -3,7 +3,26 @@ class MediaItemsController < ApplicationController
   	before_filter :authenticate_user!
 
 	def index
-		@media_items = MediaItem.all
+
+    flash.clear
+
+    if params.has_key?(:search)
+    	@media_items = MediaItem.search params[:search]
+    else
+      @media_items = MediaItem.all
+    end
+
+    if @media_items.empty?
+      notice = "Sorry! No media available"
+
+      if params.has_key?(:search) 
+        notice += " containing your search (" + params[:search] + ")."
+      else
+        notice += ", yet."
+      end
+
+      flash[:notice] = notice
+    end
 	end
 
 	def new
@@ -23,9 +42,5 @@ class MediaItemsController < ApplicationController
 		else
 			render 'new'
 		end
-	end
-
-	def search
-		@media_items = MediaItem.search params[:search]
 	end
 end

@@ -1,58 +1,59 @@
 <h2>Welcome!</h2>
 
-<i><%= ENV["APP_NAME"] %></i> is a platform which manages a list of media items you can borrow from other users. 
+<i><%= ENV["APP_NAME"] %></i> is a platform which manages a list of media you can borrow from other users. 
 
 <div class="row marketing" style="margin-top: 30px">
-        <div class="col-lg-6">
-          	<h3>Available features</h3>
-			<ul>
-				<li>Add new media items like dvds or books</li>
-				<li>List all currently available media items</li>
-			</ul>
+  <div class="col-lg-6">
+      <h3>Available features</h3>
+      <ul>
+        <li>Add new media like dvds or books</li>
+        <li>List all currently available media</li>
+        <li>Search for media</li>
+      </ul>
 
-			<h3>Planned features</h3>
-			<ul>
-				<li>Search for media items</li>
-				<li>Borrow media items from users. Borrowed items will be marked as currently unavailable</li>
-				<li>Edit user account data</li>
-			</ul>
+      <h3>Planned features</h3>
+      <ul>
+        <li>Sort media by category</li>
+        <li>Borrow media from users. Borrowed will be marked as currently unavailable</li>
+        <li>Edit user account data</li>
+      </ul>
+  </div>
+
+    <div class="col-lg-6" >
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Get started!</h3>
         </div>
-
-        <div class="col-lg-6" >
-          	<div class="panel panel-success">
-				<div class="panel-heading">
-					<h3 class="panel-title">Get started!</h3>
-				</div>
-				<div class="panel-body">
-					<p>
-						If you don't have an account you may <strong><%= link_to 'sign up', new_user_registration_path %></strong> to access <i><%= ENV["APP_NAME"] %></i>. Otherwise you can sign in here: 
-					</p>
-					<p>
-						<%= form_for("user", :url => user_session_path) do |f| %>
-						  <p>
-							  <%= f.label :email %>	<br />
-							  <%= f.text_field :email %>
-						  </p>
-						  <p>
-						  	<%= f.label :password %> <br />
-						  	<%= f.password_field :password %>
-						  </p>
-						  <p>
-							  <%= f.check_box :remember_me %>
-							  <%= f.label :remember_me %>
-						  </p>
-						  <p>
-							  <%= f.submit 'Sign in' %>
-							  <%= link_to "Forgot your password?", new_password_path('user') %>
-						  </p>
-						<% end %>
-					</p>
-				</div>
+        <div class="panel-body">
+          <p>
+            If you don't have an account you may <strong><%= link_to 'sign up', new_user_registration_path %></strong> to access <i><%= ENV["APP_NAME"] %></i>. Otherwise you can sign in here: 
+          </p>
+          <p>
+            <%= form_for("user", :url => user_session_path) do |f| %>
+              <p>
+                <%= f.label :email %> <br />
+                <%= f.text_field :email %>
+              </p>
+              <p>
+                <%= f.label :password %> <br />
+                <%= f.password_field :password %>
+              </p>
+              <p>
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </p>
+              <p>
+                <%= f.submit 'Sign in' %>
+                <%= link_to "Forgot your password?", new_password_path('user') %>
+              </p>
+            <% end %>
+          </p>
         </div>
       </div>
-</div>
+    </div>
+  </div>
 
-<p style="margin-top: 50px">
-    <small>This software is provided without warranty and the software author cannot be held liable for damages. <a href="https://raw.github.com/thomaseger/media/master/LICENSE">See the license for more details.</a></small>
-</p>
+  <p style="margin-top: 50px">
+      <small>This software is provided without warranty and the software author cannot be held liable for damages. <a href="https://raw.github.com/thomaseger/media/master/LICENSE">See the license for more details.</a></small>
+  </p>
 
