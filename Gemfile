@@ -37,4 +37,4 @@ gem 'binding_of_caller', '>= 0.6.8', :group => :development
 gem 'strong_parameters'
 gem 'bootstrap-sass'
 gem 'simple_form'
-gem 'therubyracer'
+gem 'therubyracer', :platform => :ruby
