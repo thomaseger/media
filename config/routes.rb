@@ -7,4 +7,6 @@ Media::Application.routes.draw do
   resources :users
   resources :types
   resources :media_items
+
+  get '/library', to: 'library#index', as: 'library'
 end

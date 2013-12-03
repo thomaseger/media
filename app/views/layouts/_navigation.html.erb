@@ -6,6 +6,11 @@
 
   <ul class="nav navbar-nav">
     <% if user_signed_in? %>
+      <% if ENV["FT_LIBRARY"] == 'true' %>
+      <li>
+        <%= link_to 'My library', library_path %>
+      </li>
+      <% end %>
       <li>
         <%= link_to 'New media item', new_media_item_path %>
       </li>
