@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131203164506) do
+ActiveRecord::Schema.define(:version => 20131204090122) do
+
+  create_table "borrow_receipts", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "borrower_id"
+    t.integer  "media_item_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "media_items", :force => true do |t|
     t.string   "title"
