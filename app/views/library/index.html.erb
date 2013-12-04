@@ -16,10 +16,10 @@
         <td><%= media_item.user.name %></td>
         <% if ENV['FT_BORROW'] == 'true' %>
         <td>
-          <% if media_item.borrowed_to? %>
-            Borrowed to <%= User.find(media_item.borrowed_to).name %>.
+          <% if media_item.borrowed? %>
+            Borrowed to <%= media_item.borrower_name %>.
           <% else %>
-            <%= link_to "Borrow to..." %> <!--, borrow_path(:media_item => media_item, :borrow_to => 3) %>-->
+            <%= link_to "Borrow to..." , new_borrow_receipt_path(:media_item => media_item) %>
           <% end %>
         </td>
         <% end %>

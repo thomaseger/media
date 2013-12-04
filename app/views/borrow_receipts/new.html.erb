@@ -1,2 +1,23 @@
 <h1>BorrowReceipts#new</h1>
-<p>Find me in app/views/borrow_receipts/new.html.erb</p>
+
+<% if @borrow_receipt.errors.any? %>
+  <div class="alert alert-danger">
+    <p><strong>Sorry!</strong> <%= pluralize(@borrow_receipt.errors.count, "error") %> occured:</p>
+    <ul>
+    <% @borrow_receipt.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @borrow_receipt do |f| %>
+  <%= f.hidden_field :media_item_id, :value => @borrow_receipt.media_item_id %>
+  <%= f.hidden_field :owner_id, :value => current_user.id %>
+  <p>
+    <%= f.label :borrower_id %>
+    <%= f.collection_select :borrower_id, User.order("name ASC"), :id, :name %>
+  </p>
+  <%= f.submit "Submit" %>
+<% end %>
+

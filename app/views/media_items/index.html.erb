@@ -17,8 +17,8 @@
         
         <% if ENV['FT_BORROW'] == 'true' %>
         <td>
-          <% if media_item.borrowed_to? %>
-            Borrowed to <%= User.find(media_item.borrowed_to).name %>.
+          <% if media_item.borrowed? %>
+            Borrowed
           <% else %>
             Available
           <% end %>

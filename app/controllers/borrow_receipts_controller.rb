@@ -1,33 +1,22 @@
 class BorrowReceiptsController < ApplicationController
+  before_filter :authenticate_user!
+
   def new
+    @borrow_receipt = BorrowReceipt.new
+    @borrow_receipt.media_item_id = params[:media_item]
   end
 
   def create
+    @borrow_receipt = BorrowReceipt.create(params[:borrow_receipt].permit(:borrower_id, :media_item_id, :owner_id))
+    if @borrow_receipt.save
+      flash[:notice] = "You borrowed " + MediaItem.find(@borrow_receipt.media_item_id).title + " to " + User.find(@borrow_receipt.borrower_id).name + " successfully."
+      redirect_to :controller => 'library', :action => 'index'
+    else
+      render 'new'
+    end
   end
 
   def index
-  end
-
-  def borrow
-    media_item = MediaItem.find(params[:media_item])
-    borrow_to = User.find(params[:borrow_to].to_i) 
-
-    if media_item.nil? && borrow_to.nil?
-      media_item.borrowed_to = borrow_to.id
-
-      if media_item.save
-        flash[:notice] = "Okay, borrowed " + media_item.title + " to " + media_item.borrowed_to.name 
-      else
-        flash_technical_error
-        logger.fatal media_item.errors.inspect
-      end
-    else
-      flash_technical_error
-      logger.fatal "media_item:  \n" + media_item.inspect
-      logger.fatal "borrow_to: \n" + borrow_to.inspect
-    end
-
-    redirect_to action: 'index'
   end
 
 private
