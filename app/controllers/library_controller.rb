@@ -5,5 +5,5 @@ class LibraryController < ApplicationController
   def index
     @media_items = MediaItem.where(:user_id => current_user)
   end
-
+  
 end

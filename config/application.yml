@@ -6,8 +6,8 @@ APP_NAME: Borrow
 # feature toggles
 FT_LIBRARY: true
 FT_SEARCH: true
+FT_BORROW: true
 
-FT_BORROW: false
 FT_AUTO_FILL: false
 FT_EDIT_ACCOUNT: false
 FT_TYPES: false

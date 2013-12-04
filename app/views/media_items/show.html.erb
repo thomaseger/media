@@ -1,15 +1,15 @@
 <h1><%=@media_item.title %></h1>
 
+<% if ENV["FT_BORROW"] == "true" %>
+<p>
+  <% if @media_item.borrowed_to? %>
+    Borrowed to <%= User.find(@media_item.borrowed_to).name %>
+  <% else %>
+    <strong>This <%= @media_item.type.name %> is available.</strong>
+  <% end %>
+</p>
+<% end %>
+
 <p>Link: <%=link_to @media_item.link, @media_item.link, :target => "_blank" %></p>
 <p>User: <%=@media_item.user.name %></p>
 <p>Type: <%=@media_item.type.name %></p>
-<p>
-	<% if @media_item.borrowed_from? %>
-		Borrowed from <%= User.find(@media_item.borrowed_from).name %>
-	<% else %>
-		<% if ENV["FT_BORROW"] == "true" %>
-			<a href="todo">Borrow</a>
-		<% end %>
-	<% end %>
-</p>
-

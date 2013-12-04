@@ -4,7 +4,7 @@ class MediaItem < ActiveRecord::Base
   belongs_to :type
   belongs_to :user
 
-  attr_accessible :link, :title, :type, :user, :borrowed_from
+  attr_accessible :link, :title, :type, :user, :borrowed_to
 
   validates_presence_of :type, :user, :title
 
@@ -12,4 +12,5 @@ class MediaItem < ActiveRecord::Base
   	search_condition = "%" + title + "%"
  	find(:all, :conditions => ['lower(title) LIKE lower(?)', search_condition], :order => 'title')
   end
+  
 end

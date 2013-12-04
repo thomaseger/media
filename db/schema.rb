@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112200103) do
+ActiveRecord::Schema.define(:version => 20131203164506) do
 
   create_table "media_items", :force => true do |t|
     t.string   "title"
     t.string   "link"
     t.integer  "type_id"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "borrowed_from"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "borrowed_to"
   end
 
   add_index "media_items", ["type_id"], :name => "index_media_items_on_type_id"
