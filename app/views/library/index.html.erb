@@ -17,9 +17,9 @@
         <% if ENV['FT_BORROW'] == 'true' %>
         <td>
           <% if media_item.borrowed? %>
-            Borrowed to <%= media_item.borrower_name %>.
+            Lent to <%= media_item.borrower_name %>.
           <% else %>
-            <%= link_to "Borrow to..." , new_borrow_receipt_path(:media_item => media_item) %>
+            <%= link_to "Lend to..." , new_borrow_receipt_path(:media_item => media_item) %>
           <% end %>
         </td>
         <% end %>
