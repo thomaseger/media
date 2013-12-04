@@ -1,4 +1,4 @@
-#Media feature list
+#Borrow feature list
 
 ##Available features
 * Add new media like dvds or books
