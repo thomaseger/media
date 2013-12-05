@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204090122) do
+ActiveRecord::Schema.define(:version => 20131205085358) do
 
   create_table "borrow_receipts", :force => true do |t|
     t.integer  "owner_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131204090122) do
     t.integer  "borrowed_to"
   end
 
+  add_index "media_items", ["title"], :name => "index_media_items_on_title", :unique => true
   add_index "media_items", ["type_id"], :name => "index_media_items_on_type_id"
   add_index "media_items", ["user_id"], :name => "index_media_items_on_user_id"
 

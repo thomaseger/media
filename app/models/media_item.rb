@@ -8,6 +8,8 @@ class MediaItem < ActiveRecord::Base
 
   validates_presence_of :type, :user, :title
 
+  validates_uniqueness_of :title
+
   def self.search(title)
   	search_condition = "%" + title + "%"
  	  find(:all, :conditions => ['lower(title) LIKE lower(?)', search_condition], :order => 'title')
