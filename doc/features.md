@@ -5,9 +5,9 @@
 * List all currently available media
 * Search for media
 * Borrow media from users. Borrowed media will be marked as  currently unavailable
+* Media items are unique for each media type
 
-##Planned features
-* Media items are unique
+##Planned features 
 * Borrow requests
 * One media item may belong to many users
 * Dashboard
