@@ -7,8 +7,7 @@ class MediaItem < ActiveRecord::Base
   attr_accessible :link, :title, :type, :user, :borrowed_to
 
   validates_presence_of :type, :user, :title
-
-  validates_uniqueness_of :title
+  validates_uniqueness_of :title, :scope => [:type_id]
 
   def self.search(title)
   	search_condition = "%" + title + "%"
