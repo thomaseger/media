@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : ENV["APP_NAME"] %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : ENV["APP_NAME"] + " is a platform which manages a list of media you can borrow from other users."%>" >
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
