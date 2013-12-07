@@ -25,19 +25,19 @@
           <%= link_to 'All types', types_path %>
         </li>
       <% end %>
-      <% if ENV["FT_SEARCH"] == 'true' %>
-        <li>
-            <%= form_tag "/media_items", :method => :get, :class => "navbar-form navbar-left" do %>
-              <div class="form-group">
-                <%= text_field_tag :search, params[:search], :id => 'search_field', :class => "form-control", :placeholder => "Search" %>
-              </div>
-            <% end %>
-        </li>
-      <% end %>
     <% end %>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
+    <% if ENV["FT_SEARCH"] == 'true' %>
+      <li>
+          <%= form_tag "/media_items", :method => :get, :class => "navbar-form navbar-left" do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], :id => 'search_field', :class => "form-control", :placeholder => "Search" %>
+            </div>
+          <% end %>
+      </li>
+    <% end %> 
     <% if user_signed_in? %>
       <li>
         <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
