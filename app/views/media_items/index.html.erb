@@ -3,7 +3,7 @@
 <table class="table table-striped table-hover">
   <thead>
   	<tr>
-  		<th>Title</th><th>Link</th><th>Type</th><th>User</th><% if ENV['FT_BORROW'] == 'true' %><th>Status</th><% end %>
+  		<th>Title</th><th>Link</th><th>Type</th><th>User</th><th>Count</th><% if ENV['FT_BORROW'] == 'true' %><th>Status</th><% end %>
   	</tr>
   </thead>
 
@@ -14,7 +14,7 @@
         <td><%=link_to media_item.link, media_item.link %></td>
         <td><%= media_item.type.name %></td>
         <td><%= media_item.user.name %></td>
-        
+        <td><%= media_item.count %></td>
         <% if ENV['FT_BORROW'] == 'true' %>
         <td>
           <% if media_item.borrowed? %>

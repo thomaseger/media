@@ -4,7 +4,10 @@ class MediaItem < ActiveRecord::Base
   belongs_to :type
   belongs_to :user
 
-  attr_accessible :link, :title, :type, :user
+  has_many :ownerships
+
+  #the user attribute is the initial creator of the media_item
+  attr_accessible :link, :title, :type, :user 
 
   validates_presence_of :type, :user, :title
   validates_uniqueness_of :title, :scope => [:type_id]
@@ -25,6 +28,10 @@ class MediaItem < ActiveRecord::Base
       User.find(receipt.borrower_id).name
     end
   end 
+
+  def count
+    ownerships.size
+  end
 
 private
   def receipt
