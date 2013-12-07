@@ -11,5 +11,12 @@
 <% end %>
 
 <p>Link: <%=link_to @media_item.link, @media_item.link, :target => "_blank" %></p>
-<p>User: <%=@media_item.user.name %></p>
+<p>Creator: <%=@media_item.user.name %></p>
 <p>Type: <%=@media_item.type.name %></p>
+
+<p>Owners</p>
+<ul>
+<% @media_item.users.uniq.each do |user| %>
+  <li><%= link_to user.name, user %></li>
+<% end %>
+</ul>

@@ -7,7 +7,7 @@ class OwnershipsController < ApplicationController
     if ownership.save
       redirect_to :controller => :library, :action => :index
     else
-      render :new
+      redirect_to :controller => :media_item, :action => :new
     end
   end
 end
