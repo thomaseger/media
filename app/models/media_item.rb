@@ -5,6 +5,7 @@ class MediaItem < ActiveRecord::Base
   belongs_to :user
 
   has_many :ownerships
+  has_many :users, through: :ownerships
 
   #the user attribute is the initial creator of the media_item
   attr_accessible :link, :title, :type, :user 
