@@ -10,26 +10,24 @@
 <% end %>
 
 <%= form_for @media_item do |f| %>
-  
-  <p>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => 'form-control' %>
     <% if ENV['FT_AUTO_FILL'] ==  'true' %>
-      <a href="todo">Auto fill</a>
+      <a href="todo">Try to fill automatically</a>
     <% end %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :link %>
-    <%= f.url_field :link %>
-  </p>
+    <%= f.url_field :link, :class => 'form-control'  %>
+  </div>
   
-  <p>
+  <div class="form-group">
     <%= f.label :type %>
-    <%= f.collection_select :type, Type.order("name ASC"), :id, :name %>
-
-  </p>
+    <%= f.collection_select :type, Type.order("name ASC"), :id, :name, {:prompt => false}, {:class => 'form-control'}  %>
+  </div>
   
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
 
 <% end %>

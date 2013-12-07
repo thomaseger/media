@@ -6,10 +6,11 @@
 * Search for media
 * Borrow media from users. Borrowed media will be marked as  currently unavailable
 * Media items are unique for each media type
+* One media item may belong to many users
 
 ##Planned features (Prio)
-* One media item may belong to many users (A)
 * Dashboard (A)
+* Fill new media form automatically (A)
 * Borrow requests
 * New menu
 * Sort media
