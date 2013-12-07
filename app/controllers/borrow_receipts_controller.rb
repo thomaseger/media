@@ -9,7 +9,7 @@ class BorrowReceiptsController < ApplicationController
   def create
     @borrow_receipt = BorrowReceipt.create(params[:borrow_receipt].permit(:borrower_id, :media_item_id, :owner_id))
     if @borrow_receipt.save
-      flash[:notice] = "You borrowed " + MediaItem.find(@borrow_receipt.media_item_id).title + " to " + User.find(@borrow_receipt.borrower_id).name + " successfully."
+      flash[:notice] = "You lent " + MediaItem.find(@borrow_receipt.media_item_id).title + " to " + User.find(@borrow_receipt.borrower_id).name + " successfully."
       redirect_to :controller => 'library', :action => 'index'
     else
       render 'new'
