@@ -7,6 +7,8 @@ class MediaItem < ActiveRecord::Base
   has_many :ownerships
   has_many :users, through: :ownerships
 
+  has_many :borrow_receipts
+
   #the user attribute is the initial creator of the media_item
   attr_accessible :link, :title, :type, :user 
 
@@ -18,24 +20,12 @@ class MediaItem < ActiveRecord::Base
  	  find(:all, :conditions => ['lower(title) LIKE lower(?)', search_condition], :order => 'title')
   end
   
-  def borrowed?
-    !receipt.nil?
-  end
-
-  def borrower_name
-  	if receipt.nil?
-      "nobody"
-    else
-      User.find(receipt.borrower_id).name
-    end
-  end 
-
-  def count
+  def amount
     ownerships.size
   end
 
-private
-  def receipt
-    BorrowReceipt.where(:media_item_id => id).limit(1).first
+  def available
+    ownerships.size - borrow_receipts.size
   end
+
 end

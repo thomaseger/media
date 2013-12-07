@@ -2,8 +2,8 @@
 
 <% if ENV["FT_BORROW"] == "true" %>
 <p>
-  <% if @media_item.borrowed? %>
-    Lend to <%= @media_item.borrower_name %>
+  <% if @media_item.available == 0 %>
+    Currently not available.
   <% else %>
     <strong>This <%= @media_item.type.name %> is available.</strong>
   <% end %>
