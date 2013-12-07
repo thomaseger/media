@@ -12,8 +12,8 @@
     <tbody>
       <% @media_items.each do |item| %>
         <tr>
-          <td><%= link_to item.title, item %></td>
-          <td><%= link_to "Add", "" %></td>
+          <td><%= link_to item.title, item %> (<%= item.type.name %>) </td>
+          <td><%= link_to "Add", ownerships_path(:ownership => {:user => current_user, :media_item => item}), :method => :post %></td>
         </tr>
       <% end %>
     </tbody>
