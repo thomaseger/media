@@ -27,6 +27,7 @@ class MediaItemsController < ApplicationController
 
 	def new
 		@media_item = MediaItem.new
+    @media_items = MediaItem.all
 	end
 
 	def show
@@ -34,13 +35,17 @@ class MediaItemsController < ApplicationController
 	end
 
 	def create
-		@media_item = current_user.media_items.create(params[:media_item].permit(:title, :link))
-		@media_item.type = Type.find(params[:media_item][:type])
+    @media_items = MediaItem.all
+
+    @media_item = MediaItem.create(params[:media_item].permit(:title, :link))
+    @media_item.type = Type.find(params[:media_item][:type])
+    @media_item.user = current_user
+    current_user.ownerships.create(:media_item => @media_item)
 
 		if @media_item.save
 			redirect_to @media_item
 		else
-			render 'new'
+			render :new
 		end
 	end
 end
