@@ -42,7 +42,7 @@
     <% end %>
 
     <li>
-      <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></a>
+      <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %></a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <% if ENV["FT_EDIT_ACCOUNT"] == "true" %>            
             <li>
