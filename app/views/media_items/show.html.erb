@@ -2,8 +2,8 @@
 
 <% if ENV["FT_BORROW"] == "true" %>
 <p>
-  <% if @media_item.borrowed_to? %>
-    Borrowed to <%= User.find(@media_item.borrowed_to).name %>
+  <% if @media_item.borrowed? %>
+    Lend to <%= @media_item.borrower_name %>
   <% else %>
     <strong>This <%= @media_item.type.name %> is available.</strong>
   <% end %>

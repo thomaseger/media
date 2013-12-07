@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205092131) do
+ActiveRecord::Schema.define(:version => 20131207113500) do
 
   create_table "borrow_receipts", :force => true do |t|
     t.integer  "owner_id"
@@ -26,14 +26,23 @@ ActiveRecord::Schema.define(:version => 20131205092131) do
     t.string   "link"
     t.integer  "type_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "borrowed_to"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "media_items", ["title", "type_id"], :name => "index_media_items_on_title_and_type_id", :unique => true
   add_index "media_items", ["type_id"], :name => "index_media_items_on_type_id"
   add_index "media_items", ["user_id"], :name => "index_media_items_on_user_id"
+
+  create_table "ownerships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "media_item_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "ownerships", ["media_item_id"], :name => "index_ownerships_on_media_item_id"
+  add_index "ownerships", ["user_id"], :name => "index_ownerships_on_user_id"
 
   create_table "types", :force => true do |t|
     t.string   "name"

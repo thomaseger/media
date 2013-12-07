@@ -4,7 +4,7 @@ class MediaItem < ActiveRecord::Base
   belongs_to :type
   belongs_to :user
 
-  attr_accessible :link, :title, :type, :user, :borrowed_to
+  attr_accessible :link, :title, :type, :user
 
   validates_presence_of :type, :user, :title
   validates_uniqueness_of :title, :scope => [:type_id]
