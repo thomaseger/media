@@ -28,25 +28,34 @@
     <% end %>
   </ul>
 
+<% if user_signed_in? %>
   <ul class="nav navbar-nav navbar-right">
     <% if ENV["FT_SEARCH"] == 'true' %>
       <li>
           <%= form_tag "/media_items", :method => :get, :class => "navbar-form navbar-left" do %>
-            <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
               <%= text_field_tag :search, params[:search], :id => 'search_field', :class => "form-control", :placeholder => "Search" %>
             </div>
           <% end %>
       </li>
-    <% end %> 
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-      </li>
     <% end %>
-    <% if user_signed_in? && ENV["FT_EDIT_ACCOUNT"] == "true" %>
-      <li>
-      <%= link_to 'Edit account', edit_user_registration_path %>
-      </li>
-    <% end %>
-  </ul>
 
+    <li>
+      <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          <% if ENV["FT_EDIT_ACCOUNT"] == "true" %>            
+            <li>
+              <%= link_to 'Edit account', edit_user_registration_path %>
+            </li>
+          <% end %>
+
+          <li class="divider"></li>
+          <li>
+            <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+          </li>
+      </ul>
+    </li>
+
+  </ul>
+<% end %>
