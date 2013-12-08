@@ -5,3 +5,5 @@
 /config/database.yml
 *.dump
 /doc/features.html
+*.sublime-project
+*.sublime-workspace
