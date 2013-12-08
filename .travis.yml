@@ -1,4 +1,16 @@
+branches:
+  only:
+    - 'master'
+
 language: ruby
 rvm:
   - 2.0.0
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
   
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database media_test' -U postgres
