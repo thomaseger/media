@@ -124,7 +124,7 @@ end
 When /^I edit my account details$/ do
   click_link "Edit account"
   fill_in "user_name", :with => "newname"
-  fill_in "user_current_password", :with => @visitor[:password]
+#  fill_in "user_current_password", :with => @visitor[:password] # currently we don't use confirmation when updating user data.
   click_button "Update"
 end
 
@@ -136,13 +136,16 @@ end
 Then /^I should be signed in$/ do
   page.should have_content "Logout"
   page.should_not have_content "Sign up"
-  page.should_not have_content "Login"
+  page.should_not have_content "Sign in"
 end
 
 Then /^I should be signed out$/ do
   page.should have_content "Sign up"
-  page.should have_content "Login"
   page.should_not have_content "Logout"
+end
+
+Then /^I should see the dashboard$/ do
+  page.should have_content "Media"
 end
 
 Then /^I see an unconfirmed account message$/ do
