@@ -3,7 +3,7 @@
 <table class="table table-striped table-hover">
   <thead>
   	<tr>
-  		<th>Title</th><th>Link</th><th>Type</th><th></th>
+  		<th>Title</th><th>Link</th><th>Type</th><th style="text-align: center;">Your copies</th><th></th>
   	</tr>
   </thead>
 
@@ -13,14 +13,15 @@
         <td><%=link_to media_item.title, media_item %></td>
         <td><%=link_to media_item.link, media_item.link %></td>
         <td><%= media_item.type.name %></td>
+        <td style="text-align: center;"><span class="badge"><%= Ownership.where(:media_item_id => media_item.id, :user_id => current_user.id).size %></span></td>
         <% if ENV['FT_BORROW'] == 'true' %>
         <td>
           <% if media_item.available == 0 %>
-            <span class="glyphicon glyphicon-minus-sign" title="Lent"></span>
+            <button class="btn btn-default" disabled><span class="glyphicon glyphicon-minus-sign"></span> Lent</button>
           <% else %>
-            <%= link_to raw('<span class="glyphicon glyphicon-share"></span>') , new_borrow_receipt_path(:media_item => media_item) %>
+            <%= link_to raw('<span class="glyphicon glyphicon-share"></span> Lend to...') , new_borrow_receipt_path(:media_item => media_item), :class => 'btn btn-info' %>
             &nbsp;&nbsp;
-            <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), ownership_path(media_item.ownerships.first), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+            <%= link_to raw('<span class="glyphicon glyphicon-remove"></span> Remove'), ownership_path(media_item.ownerships.first), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-info' %>
           <% end %>
         </td>
         <% end %>
