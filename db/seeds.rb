@@ -21,8 +21,8 @@
 #])
 
 
-MediaItem.all.each do |item|
-  Ownership.create!([
-    {:user => item.user, :media_item => item}
-  ])  
-end
+#MediaItem.all.each do |item|
+#  Ownership.create!([
+#    {:user => item.user, :media_item => item}
+#  ])  
+#end
