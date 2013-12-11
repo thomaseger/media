@@ -7,10 +7,23 @@ class OwnershipsController < ApplicationController
     ownership = Ownership.create(:user => user, :media_item => item)
 
     if ownership.save
-      redirect_to :controller => :library, :action => :index
+      redirect_to_library
     else
       redirect_to :controller => :media_item, :action => :new
     end
   end
+
+  def destroy
+    @ownership = Ownership.find(params[:id])
+    flash[:notice] = "Removed one #{@ownership.media_item.title} from library."
+
+    @ownership.destroy
+    redirect_to_library
+  end
+
+  private
+    def redirect_to_library
+      redirect_to :controller => :library, :action => :index
+    end
 end
 

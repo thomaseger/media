@@ -27,7 +27,7 @@ class MediaItemsController < ApplicationController
 
 	def new
 		@media_item = MediaItem.new
-    @media_items = MediaItem.all
+    @media_items = MediaItem.order(:title)
 	end
 
 	def show

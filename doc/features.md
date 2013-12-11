@@ -8,12 +8,11 @@
 * Media are unique for each media type
 * One media item may belong to many users
 * Edit your user data
+* Remove media from your library
 
 ##Currently planned features (Prio)
 * Dashboard (A)
-* Borrow requests (A)
-* Sort media
-* Edit media 
+* Borrow requests (A)  
 
 ##Backlog
 * Images for media

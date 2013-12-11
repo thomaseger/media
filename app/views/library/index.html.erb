@@ -16,9 +16,11 @@
         <% if ENV['FT_BORROW'] == 'true' %>
         <td>
           <% if media_item.available == 0 %>
-            Lent
+            <span class="glyphicon glyphicon-minus-sign" title="Lent"></span>
           <% else %>
-            <%= link_to "Lend to..." , new_borrow_receipt_path(:media_item => media_item) %>
+            <%= link_to raw('<span class="glyphicon glyphicon-share"></span>') , new_borrow_receipt_path(:media_item => media_item) %>
+            &nbsp;&nbsp;
+            <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), ownership_path(media_item.ownerships.first), :data => { :confirm => "Are you sure?" }, :method => :delete %>
           <% end %>
         </td>
         <% end %>
