@@ -1,5 +1,4 @@
 class MediaItem < ActiveRecord::Base
-	include ActiveModel::ForbiddenAttributesProtection
 	
   belongs_to :type
   belongs_to :user

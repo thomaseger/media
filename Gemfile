@@ -14,10 +14,11 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
+gem 'sass-rails',   '>= 3.2.3'
+gem 'coffee-rails', '>= 3.2.1'
 gem 'uglifier', '>= 1.0.3'
 
+gem 'activeresource'
 gem 'pg'
 gem 'jquery-rails'
 gem 'rspec-rails', '>= 2.12.2', :group => [:development, :test]
@@ -32,7 +33,6 @@ gem 'quiet_assets', '>= 1.0.1', :group => :development
 gem 'figaro', '>= 0.5.3'
 gem 'better_errors', '>= 0.3.2', :group => :development
 gem 'binding_of_caller', '>= 0.6.8', :group => :development
-gem 'strong_parameters'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'therubyracer', :platform => :ruby

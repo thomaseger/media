@@ -1,5 +1,4 @@
 class Type < ActiveRecord::Base
-  	include ActiveModel::ForbiddenAttributesProtection
   	
   has_many :media_items
 
