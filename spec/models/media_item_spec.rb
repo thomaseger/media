@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'database_cleaner'
 
 describe MediaItem do
 
