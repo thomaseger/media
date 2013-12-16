@@ -8,9 +8,6 @@ class MediaItem < ActiveRecord::Base
 
   has_many :borrow_receipts
 
-  #the user attribute is the initial creator of the media_item
-  attr_accessible :link, :title, :type, :user 
-
   validates_presence_of :type, :user, :title
   validates_uniqueness_of :title, :scope => [:type_id]
 
