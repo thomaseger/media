@@ -3,7 +3,7 @@
   <% else %>
     <%= link_to ENV["APP_NAME"], root_path, :class => 'navbar-brand' %>
   <% end %>
-
+  <div class="navbar-collapse collapse">
   <ul class="nav navbar-nav">
     <% if user_signed_in? %>
       <% if ENV["FT_LIBRARY"] == 'true' %>
@@ -59,3 +59,4 @@
 
   </ul>
 <% end %>
+</div>
