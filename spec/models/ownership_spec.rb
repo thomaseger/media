@@ -1,5 +1,22 @@
 require 'spec_helper'
 
 describe Ownership do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  context "validation" do
+    it "succeeds if user and media_item are present" do 
+      ownership = FactoryGirl.build(:ownership_with_user_and_media_item)
+      ownership.should be_valid
+    end
+
+    it "fails if no user is given" do 
+      ownership = FactoryGirl.build(:ownership_with_media_item)
+      ownership.should_not be_valid
+    end
+
+    it "fails if no media_item is given" do 
+      ownership = FactoryGirl.build(:ownership_with_user)
+      ownership.should_not be_valid
+    end
+
+  end
 end
