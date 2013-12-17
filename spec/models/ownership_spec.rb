@@ -4,7 +4,7 @@ describe Ownership do
   
   context "validation" do
     it "succeeds if user and media_item are present" do 
-      ownership = FactoryGirl.build(:ownership_with_user_and_media_item)
+      ownership = FactoryGirl.build(:ownership)
       ownership.should be_valid
     end
 
