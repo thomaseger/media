@@ -1,7 +1,6 @@
 branches:
   only:
     - 'master'
-    - 'rails4'
 
 language: ruby
 rvm:
