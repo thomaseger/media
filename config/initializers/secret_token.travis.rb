@@ -1,0 +1,4 @@
+### special public tokens for ci.
+
+Media::Application.config.secret_token = '27444f8cbc4f3193ac65da9b52fda736ceaf2496a9bb3da5968722c2fba66f4baa32545497efcffb03df2195ce0ee78eefee906e6d584c44ba85d35e11c5af29'
+Media::Application.config.secret_key_base = '4c1e103aa7dace35ddf68bd87ede33058c0f036160a1bf6e6be150948b058dd425084cfb99c0016c38dd552eff66c81202afdb9ed27a4676b09ec8b6a1f64158'

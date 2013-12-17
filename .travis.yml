@@ -14,4 +14,5 @@ script:
 
 before_script:
   - cp config/database.travis.yml config/database.yml
+  - cp config/initializers/secret_token.travis.rb config/initializers/secret_token.rb 
   - psql -c 'create database media_test' -U postgres
