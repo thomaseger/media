@@ -29,10 +29,18 @@ describe MediaItem do
     end
 
     it "returns one hit" do
-      item = FactoryGirl.create :media_item_with_type_and_user
-      query = "yStr"
+      item = FactoryGirl.create :media_item_search_hit
+      query = "hit"
       result = MediaItem.search query
       expect(result.first).to eq item
+    end
+
+    it "returns 5 hits" do 
+      FactoryGirl.create_list(:media_item_with_type_and_user, 100)
+      hits = FactoryGirl.create_list(:media_item_search_hit, 5)
+      query = "hit"
+      result = MediaItem.search query
+      result.should match_array hits
     end
   end
 

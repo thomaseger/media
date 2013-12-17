@@ -29,4 +29,8 @@ FactoryGirl.define do
     ownerships { create_list :ownership, 10 }
     borrow_receipts { create_list :borrow_receipt_with_owner_borrower_media_item, 7 }
   end
+
+  factory :media_item_search_hit, :parent => :media_item_with_type_and_user do
+    sequence(:title) { |n| "#{n}hit#{n}" }
+  end
 end
