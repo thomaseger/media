@@ -9,8 +9,7 @@ rvm:
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
-  - bundle exec rspec spec
-  - bundle exec cucumber
+  - bundle exec rake test_and_push_coverage
 
 before_script:
   - cp config/database.travis.yml config/database.yml
