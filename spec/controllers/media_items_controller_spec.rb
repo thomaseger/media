@@ -49,15 +49,36 @@ describe MediaItemsController do
   end
 
   describe "GET 'new'" do
-    pending
+    it "assigns media_item" do 
+      get :new
+      assigns(@media_item).should_not be_nil
+    end
+
+    it "assigns media_items" do
+      get :new
+      assigns(@media_items).should_not be_nil
+    end
   end
 
   describe "GET 'show'" do
-    pending
+    it "assigns media_items" do
+      item = FactoryGirl.create(:media_item_with_type_and_user) 
+      get 'show', :id => item.id
+      expect(assigns(:media_item)).to eq item
+    end
   end
 
   describe "POST 'create'" do
-    pending
+    it "assigns media_items" do
+      media_item_params = FactoryGirl.attributes_for(:media_item_with_type_and_user)
+      post :create, :media_item => media_item_params
+      assigns(@media_items).should_not be_nil
+    end
+
+    it "creates a new media item" do
+      media_item_params = FactoryGirl.attributes_for(:media_item_with_type_and_user)
+      expect { post :create, :media_item => media_item_params }.to change(MediaItem, :count).by(1)
+    end
   end
 
 end
