@@ -4,6 +4,7 @@ class BorrowReceiptsController < ApplicationController
   def new
     @borrow_receipt = BorrowReceipt.new
     @borrow_receipt.media_item_id = params[:media_item]
+    @media_item = MediaItem.find(@borrow_receipt.media_item_id)
   end
 
   def create
