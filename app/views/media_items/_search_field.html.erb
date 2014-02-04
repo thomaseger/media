@@ -1,9 +1,29 @@
 <script>
   $(function() {
-    var titles = <%= MediaItem.pluck(:title).to_json.html_safe %>;
-    $("#search_field").autocomplete({
-      source: titles
+    var types = $.map(<%= Type.all.to_json.html_safe %>, function (value, key) {
+      return value.name;
     });
+
+    var all_media = $.map(<%= MediaItem.all.to_json.html_safe %>, function (value, key) {
+                return {
+                    label: value.title,
+                    value: value.title,
+                    object: value
+                }
+              }
+            );
+
+    $("#search_field").autocomplete({
+      source: all_media,
+      open: function(event, ui) {
+        $('.ui-autocomplete').append('<li border-top: 1px solid #ccc;"><%= link_to "Not found? Create a new one!", new_media_item_path %></li>');
+      }
+    }).data("ui-autocomplete")._renderItem = function (ul, item) {
+         return $("<li></li>")
+             .data("item.autocomplete", item)
+             .append("<a>" + item.label + " (" + types[item.object.type_id] + ")</a>")
+             .appendTo(ul);
+     };
   });
 </script>
 <div class="input-group">
