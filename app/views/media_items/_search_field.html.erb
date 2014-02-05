@@ -1,8 +1,21 @@
 <script>
   $(function() {
     var types = $.map(<%= Type.all.to_json.html_safe %>, function (value, key) {
-      return value.name;
+      return {
+        id: value.id,
+        name: value.name
+      }
     });
+
+    var getTypeNameByTypeId = function (id) {
+      for (index = 0; index < types.length; ++index) {
+        t = types[index];
+        if(t.id == id) {
+          return t.name;
+        }
+      }
+      return "not found";
+    }
 
     var all_media = $.map(<%= MediaItem.all.to_json.html_safe %>, function (value, key) {
                 return {
@@ -21,7 +34,7 @@
     }).data("ui-autocomplete")._renderItem = function (ul, item) {
          return $("<li></li>")
              .data("item.autocomplete", item)
-             .append("<a>" + item.label + " (" + types[item.object.type_id] + ")</a>")
+             .append("<a>" + item.label + " (" + getTypeNameByTypeId(item.object.type_id) + ")</a>")
              .appendTo(ul);
      };
   });
