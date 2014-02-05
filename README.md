@@ -5,6 +5,6 @@
 A platform which helps you manage all of your media you would like to exchange with other people. It simplifies the whole borrowing proccess and aids you in getting the desired media from other people.
 
 * Manage your media
-* See your friends media
+* See your friends' media
 * Borrow media from your friends
-* Remember what you have lend to others!
+* __Remember what you have lend to others!__
