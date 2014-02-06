@@ -1,9 +1,11 @@
 <div>
-<% @media_items.first(4).each do |media_item| %>
-  <%= render 'promoted_tile', :locals => { :item => media_item } %> 
-<% end %>
+	<div class="row">  
+		<% @media_items.first(4).each do |media_item| %>
+		  <%= render 'promoted_tile', :locals => { :item => media_item } %> 
+		<% end %>
+	</div>
 
-<% @media_items[4, @media_items.size].each do |media_item| %>
-  <%= render 'tile', :locals => { :item => media_item } %> 
-<% end %>
+	<% @media_items[4, @media_items.size].each do |media_item| %>
+	  <%= render 'tile', :locals => { :item => media_item } %> 
+	<% end %>
 </div>	

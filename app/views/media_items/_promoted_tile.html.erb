@@ -1,11 +1,9 @@
-<div class="col-sm-6 col-md-6">
-	<div class="thumbnail tile tile-read">
-		<a href="#" >
-			<h1>
-				<%= locals[:item].title[0,6] + " ..." %>
-
-			</h1>
-			<%= locals[:item].created_at %>
-		</a>
-	</div>
+<div class="col-xs-6 col-md-3">
+	<a href="#" class="thumbnail" >
+		<%=image_tag locals[:item].image, size: "100%x180" %>
+		<h1><%= locals[:item].title[0,6] + " ..." %></h1>
+		<div class="caption">
+   			 <h3><%= locals[:item].title %></h3>
+   		 </div>		
+	</a>
 </div>
