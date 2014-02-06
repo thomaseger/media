@@ -9,6 +9,8 @@
         $('.ui-autocomplete').append(createLink);
       }
     }).data("ui-autocomplete")._renderItem = function (ul, item) {
+          item.label = item.title
+          item.value = item.title
           return $("<li></li>")
              .data("item.autocomplete", item)
              .append("<a>" + item.title + " (" + item.type_name + ")</a>")
