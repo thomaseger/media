@@ -8,6 +8,8 @@ class MediaItemsController < ApplicationController
 
     if params.has_key?(:search)
     	@media_items = MediaItem.search params[:search]
+    elsif params.has_key?(:term)
+      @media_items = MediaItem.search params[:term]
     else
       @media_items = MediaItem.order('title')
     end
@@ -22,6 +24,11 @@ class MediaItemsController < ApplicationController
       end
 
       flash[:notice] = notice
+    end
+
+    respond_to do |format|
+      format.html 
+      format.json { render :json => @media_items }
     end
 	end
 
