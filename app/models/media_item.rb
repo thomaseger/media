@@ -24,4 +24,8 @@ class MediaItem < ActiveRecord::Base
     ownerships.size - borrow_receipts.size
   end
 
+  def as_json(options={})
+    hash = super(options)
+    hash.merge!("type_name" => type.name)
+  end
 end
