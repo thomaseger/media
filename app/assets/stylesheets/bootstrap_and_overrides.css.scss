@@ -3,3 +3,29 @@
 body { 
 	padding-top: 20px; 
 }
+
+.navbar-default .navbar-brand {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-default .navbar-brand a:hover {
+  color: #00f;
+}
+
+.navbar-default {
+  background-color: #000;
+  border: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #00f;
+}
+
+.navbar {
+    border-radius: 0px;
+}

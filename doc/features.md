@@ -17,5 +17,9 @@
 ##Backlog
 * Images for media
 * Genre for media
-* Fill new media form automatically 
+* Generic autocomplete search
+* Integration of omdbapi.com to create new videos more easily
 * New menu
+
+##Vision
+* Mobile version with barcode reader to scan media

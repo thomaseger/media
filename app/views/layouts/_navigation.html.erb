@@ -33,10 +33,7 @@
     <% if ENV["FT_SEARCH"] == 'true' %>
       <li>
           <%= form_tag "/media_items", :method => :get, :class => "navbar-form navbar-left" do %>
-            <div class="input-group">
-              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-              <%= text_field_tag :search, params[:search], :id => 'search_field', :class => "form-control", :placeholder => "Search" %>
-            </div>
+            <%= render "media_items/search_field" %>
           <% end %>
       </li>
     <% end %>

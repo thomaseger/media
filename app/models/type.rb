@@ -1,10 +1,4 @@
 class Type < ActiveRecord::Base
-  	include ActiveModel::ForbiddenAttributesProtection
-  	
-  has_many :media_items
-
-  attr_accessible :name
-  
+  has_many :media_items  
   validates_uniqueness_of :name
-
 end

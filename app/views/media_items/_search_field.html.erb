@@ -1,0 +1,45 @@
+<script>
+  $(function() {
+    var types = $.map(<%= Type.all.to_json.html_safe %>, function (value, key) {
+      return {
+        id: value.id,
+        name: value.name
+      }
+    });
+
+    var getTypeNameByTypeId = function (id) {
+      for (index = 0; index < types.length; ++index) {
+        t = types[index];
+        if(t.id == id) {
+          return t.name;
+        }
+      }
+      return "not found";
+    }
+
+    var all_media = $.map(<%= MediaItem.all.to_json.html_safe %>, function (value, key) {
+                return {
+                    label: value.title,
+                    value: value.title,
+                    object: value
+                }
+              }
+            );
+
+    $("#search_field").autocomplete({
+      source: all_media,
+      open: function(event, ui) {
+        $('.ui-autocomplete').append('<li border-top: 1px solid #ccc;"><%= link_to "Not found? Create a new one!", new_media_item_path %></li>');
+      }
+    }).data("ui-autocomplete")._renderItem = function (ul, item) {
+         return $("<li></li>")
+             .data("item.autocomplete", item)
+             .append("<a>" + item.label + " (" + getTypeNameByTypeId(item.object.type_id) + ")</a>")
+             .appendTo(ul);
+     };
+  });
+</script>
+<div class="input-group">
+  <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+  <%= text_field_tag :search, params[:search], :id => 'search_field', :class => "form-control", :placeholder => "Search" %>
+</div>

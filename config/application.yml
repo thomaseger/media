@@ -1,7 +1,7 @@
 #This is not the right place for storing passwords!
 
 # application name
-APP_NAME: Borrow
+APP_NAME: media
 
 # feature toggles
 FT_LIBRARY: true

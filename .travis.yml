@@ -9,9 +9,9 @@ rvm:
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
-  - bundle exec rspec spec
-  - bundle exec cucumber
+  - bundle exec rake test_and_push_coverage
 
 before_script:
   - cp config/database.travis.yml config/database.yml
+  - cp config/initializers/secret_token.travis.rb config/initializers/secret_token.rb 
   - psql -c 'create database media_test' -U postgres

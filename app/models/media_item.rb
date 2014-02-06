@@ -1,5 +1,4 @@
 class MediaItem < ActiveRecord::Base
-	include ActiveModel::ForbiddenAttributesProtection
 	
   belongs_to :type
   belongs_to :user
@@ -9,15 +8,12 @@ class MediaItem < ActiveRecord::Base
 
   has_many :borrow_receipts
 
-  #the user attribute is the initial creator of the media_item
-  attr_accessible :link, :title, :type, :user 
-
   validates_presence_of :type, :user, :title
   validates_uniqueness_of :title, :scope => [:type_id]
 
   def self.search(title)
   	search_condition = "%" + title + "%"
- 	  find(:all, :conditions => ['lower(title) LIKE lower(?)', search_condition], :order => 'title')
+    where('lower(title) LIKE lower(?)', search_condition).order('title')
   end
   
   def amount
