@@ -24,4 +24,15 @@ class MediaItem < ActiveRecord::Base
     ownerships.size - borrow_receipts.size
   end
 
+  def image
+    if image_url.nil?
+      return "no.png" 
+    end
+    return image_url
+  end
+
+  def as_json(options={})
+    hash = super(options)
+    hash.merge!("type_name" => type.name)
+  end
 end
