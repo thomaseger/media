@@ -1,3 +1,11 @@
-<div>
-<%= locals[:item].created_at %>
+<div class="col-sm-6 col-md-3">
+	<div class="thumbnail tile tile-teal">
+		<a href="#" >
+			<h1>
+				<%= 	locals[:item].title[0,6] + " ..." %>
+
+			</h1>
+			<%= locals[:item].created_at %>
+		</a>
+	</div>
 </div>
