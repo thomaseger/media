@@ -7,8 +7,7 @@ describe MediaItemsController do
     sign_in @user
   end
 
-  describe "GET 'index'" do 
-
+  describe "POST 'index'" do
     it "renders the index view" do 
       post 'index'
       expect(response).to render_template :index
@@ -20,7 +19,7 @@ describe MediaItemsController do
       expect(assigns(:media_items)).to eq(all)
     end
 
-    context "no media available" do 
+    context "when no media is available" do 
       it "flashes a not found notice" do 
         post 'index'
         flash[:notice].should include "yet"
@@ -47,6 +46,9 @@ describe MediaItemsController do
       end
     end
 
+  end
+
+  describe "GET 'index'" do 
     context "when a term parameter is present" do
       context "when the term hits" do
         it "assigns the results" do 
