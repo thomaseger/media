@@ -46,6 +46,26 @@ describe MediaItemsController do
         end
       end
     end
+
+    context "when a term parameter is present" do
+      context "when the term hits" do
+        it "assigns the results" do 
+          FactoryGirl.create_list(:media_item_with_type_and_user, 2)
+          item = FactoryGirl.create(:media_item_search_hit)
+          get 'index', :term => 'hit'
+          expect(assigns(:media_items)).to eq([item])
+        end
+      end
+
+      context "when the term doesn't hit" do
+        it "does nothing" do
+          FactoryGirl.create_list(:media_item_with_type_and_user, 2)
+          item = FactoryGirl.create(:media_item_search_hit)
+          get 'index', :term => 'no hit'
+          expect(response.status).to eq 200
+        end
+      end
+    end
   end
 
   describe "GET 'new'" do
