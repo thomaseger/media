@@ -66,4 +66,21 @@ describe MediaItem do
     end
   end
 
+  context "image" do 
+    it "returns a dummy" do 
+      item = FactoryGirl.build :media_item
+      dummy = item.image
+      expect(dummy).to eq "no.png"
+    end
+
+    it "returns a image url" do
+      path = "a/image/path.jpg"
+      item = FactoryGirl.build :media_item
+      item.image_url = path
+      image = item.image
+      expect(image).to eq path
+    end
+
+  end
+
 end
