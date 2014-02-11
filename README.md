@@ -8,3 +8,5 @@ A platform which helps you manage all of your media you would like to exchange w
 * See your friends' media
 * Borrow media from your friends
 * __Remember what you have lend to others!__
+
+For a complete list of our planned features see [doc/features.md](doc/features.md).
